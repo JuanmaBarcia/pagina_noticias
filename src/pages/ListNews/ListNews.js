@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ListNews.scss";
-import Card from "./Card";
+import Notice from "./Notice";
 
 class ListNews extends Component {
   // constructor(props){
@@ -21,7 +21,7 @@ class ListNews extends Component {
     return (
       <div className='ListNews'>
         esto es listnews
-        <Card />
+        <Notice />
       </div>
     );
   }

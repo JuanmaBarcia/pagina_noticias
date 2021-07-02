@@ -1,7 +1,8 @@
-/*
- * Head css File
-*/
-
 .Head {
-    /* propertys here */
+  display: flex;
+  justify-content: space-between;
+  .userName {
+    padding: 10px;
+    margin: 0 auto;
+  }
 }
