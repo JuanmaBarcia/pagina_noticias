@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Head.scss";
 import Nav from "./Nav";
+import { userContext } from "../../context/userContext";
 
 class Head extends Component {
   // constructor(props){
@@ -8,19 +9,18 @@ class Head extends Component {
   // this.state = {};
   // }
 
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillUnmount(){}
-
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
   render() {
     return (
       <div className='Head'>
-        <div className='userName'>Nombre Usuario</div>
+        <userContext.Consumer>
+          {({ user }) => {
+            return (
+              <>
+                <div className='userName'>{user.name}</div>
+              </>
+            );
+          }}
+        </userContext.Consumer>
         <Nav />
       </div>
     );
