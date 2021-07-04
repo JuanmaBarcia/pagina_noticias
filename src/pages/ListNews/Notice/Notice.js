@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Notice.scss";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,12 +9,12 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
 class Notice extends Component {
-  // constructor(props){
-  // super(props);
-  // this.state = {};
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  useStyles = (makeStyles) => ({
+  useStyles = () => ({
     root: {
       maxWidth: 345,
     },
@@ -24,43 +23,35 @@ class Notice extends Component {
     },
   });
 
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillUnmount(){}
-
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
   render() {
     const classes = this.useStyles();
+    let { title, urlToImage, url, description } = this.props.data;
     return (
-      <div>
-        Notice
+      <div className='Notice'>
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
-              className={classes.media}
-              image='https://material-ui.com/static/images/cards/contemplative-reptile.jpg'
-              title='Contemplative Reptile'
+              component='img'
+              alt='Foto Noticia'
+              height='140'
+              image={urlToImage}
+              title='FOto Noticia'
             />
             <CardContent>
               <Typography gutterBottom variant='h5' component='h2'>
-                Lizard
+                {title}
               </Typography>
               <Typography variant='body2' color='textSecondary' component='p'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {description}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size='small' color='primary'>
-              Share
+              <a href={url}>Ver más...</a>
             </Button>
             <Button size='small' color='primary'>
-              Learn More
+              <span onClick={this.props.remove}>Borrar noticia</span>
             </Button>
           </CardActions>
         </Card>

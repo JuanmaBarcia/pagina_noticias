@@ -1,8 +1,8 @@
 .Head {
   display: flex;
   justify-content: space-between;
+  border-bottom: solid 1px;
   .userName {
-    padding: 10px;
-    margin: 0 auto;
+    padding: 10px 20px;
   }
 }

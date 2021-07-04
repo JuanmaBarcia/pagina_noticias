@@ -9,6 +9,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
+import EditIcon from "@material-ui/icons/Edit";
+import BallotIcon from "@material-ui/icons/Ballot";
 
 class Nav extends Component {
   constructor(props) {
@@ -57,13 +59,13 @@ class Nav extends Component {
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <HomeIcon />
+            <EditIcon />
           </ListItemIcon>
           <Link to='/form'>Crear noticia</Link>
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <HomeIcon />
+            <BallotIcon />
           </ListItemIcon>
           <Link to='/list'>Noticias</Link>
         </ListItem>

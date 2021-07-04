@@ -3,7 +3,9 @@ import "./Footer.scss";
 
 class Footer extends Component {
   render() {
-    return <div className='Footer'>esto es el footer</div>;
+    return (
+      <div className='Footer'>© Juanma Barcia {new Date().getFullYear()}</div>
+    );
   }
 }
 

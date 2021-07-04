@@ -1,7 +1,10 @@
-/*
- * Notice css File
-*/
-
 .Notice {
-    /* propertys here */
+  margin-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
+  .MuiCardActions-root.MuiCardActions-spacing {
+    justify-content: space-between;
+    margin: 0px 5px;
+  }
 }
