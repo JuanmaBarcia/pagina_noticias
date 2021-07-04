@@ -20,7 +20,7 @@ class Head extends Component {
   render() {
     return (
       <div className='Head'>
-        esto es head
+        <div className='userName'>Nombre Usuario</div>
         <Nav />
       </div>
     );

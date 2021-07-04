@@ -1,7 +1,15 @@
-/*
- * Form css File
-*/
-
 .Form {
-    /* propertys here */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  button {
+    margin-top: 24px;
+  }
 }

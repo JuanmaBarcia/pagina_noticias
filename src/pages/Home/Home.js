@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./Home.scss";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class Home extends Component {
   // constructor(props){
@@ -7,6 +10,14 @@ class Home extends Component {
   // this.state = {};
   // }
 
+  useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+        width: "25ch",
+      },
+    },
+  }));
   // componentWillMount(){}
   // componentDidMount(){}
   // componentWillUnmount(){}
@@ -17,7 +28,18 @@ class Home extends Component {
   // componentDidUpdate(){}
 
   render() {
-    return <div className='Home'>esto es home</div>;
+    // const classes = this.useStyles();
+    return (
+      <div className='Home'>
+        <h1>Introducir usuario</h1>
+        <form noValidate autoComplete='off'>
+          <TextField id='standard-basic' label='Nombre de usuario' />
+          <Button variant='contained' color='primary'>
+            Primary
+          </Button>
+        </form>
+      </div>
+    );
   }
 }
 

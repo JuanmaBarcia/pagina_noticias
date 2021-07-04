@@ -23,7 +23,6 @@ class Main extends Component {
   render() {
     return (
       <div className='Main'>
-        esto es main
         <Switch>
           <Route path='/home' component={Home} exact />
           <Route path='/form' component={Form} />
