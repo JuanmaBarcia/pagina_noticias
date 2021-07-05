@@ -1,0 +1,14 @@
+.ListNews {
+}
+@media screen and (min-width: 565px) and (max-width: 959px) {
+  .ListNews {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 961px) {
+  .ListNews {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

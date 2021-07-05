@@ -1,0 +1,10 @@
+.Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px;
+  font-size: 1.5rem;
+  .userName {
+    padding: 10px 20px;
+  }
+}
