@@ -48,7 +48,9 @@ class Notice extends Component {
           </CardActionArea>
           <CardActions>
             <Button size='small' color='primary'>
-              <a href={url}>Ver más...</a>
+              <a href={url} target='_blank' rel='noreferrer'>
+                Ver más...
+              </a>
             </Button>
             <Button size='small' color='primary'>
               <span onClick={this.props.remove}>Borrar noticia</span>
