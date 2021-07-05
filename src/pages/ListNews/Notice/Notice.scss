@@ -7,4 +7,31 @@
     justify-content: space-between;
     margin: 0px 5px;
   }
+  button.MuiButtonBase-root.MuiCardActionArea-root {
+    cursor: unset;
+  }
+}
+@media screen and (min-width: 565px) and (max-width: 959px) {
+  .Notice {
+    width: 48%;
+    &:nth-child(odd) {
+      margin-right: 4%;
+    }
+    > div {
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .Notice {
+    width: 30%;
+    margin-right: 5%;
+    &:nth-child(3n + 0) {
+      margin-right: 0;
+    }
+    > div {
+      height: 100%;
+    }
+  }
 }

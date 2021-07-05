@@ -40,7 +40,7 @@ class Main extends Component {
   render() {
     if (!this.state.isLogged) {
       return (
-        <div className='Main'>
+        <div className='Main wrapper'>
           <Switch>
             <Route exact path='/'>
               <Redirect to='/home' />
@@ -57,7 +57,7 @@ class Main extends Component {
       );
     } else {
       return (
-        <div className='Main'>
+        <div className='Main wrapper'>
           <Switch>
             <Route exact path='/'>
               <Redirect to='/home' />
