@@ -62,24 +62,30 @@ class Nav extends Component {
       onClick={this.toggleDrawer(anchor, false)}
       onKeyDown={this.toggleDrawer(anchor, false)}>
       <List>
-        <ListItem button>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <Link to='/home'>Home</Link>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <EditIcon />
-          </ListItemIcon>
-          <Link to='/form'>Crear noticia</Link>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <BallotIcon />
-          </ListItemIcon>
-          <Link to='/list'>Noticias</Link>
-        </ListItem>
+        <Link to='/home'>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText>Home</ListItemText>
+          </ListItem>
+        </Link>
+        <Link to='/form'>
+          <ListItem button>
+            <ListItemIcon>
+              <EditIcon />
+            </ListItemIcon>
+            <ListItemText>Crear noticia</ListItemText>
+          </ListItem>
+        </Link>
+        <Link to='/list'>
+          <ListItem button>
+            <ListItemIcon>
+              <BallotIcon />
+            </ListItemIcon>
+            <ListItemText>Noticias</ListItemText>
+          </ListItem>
+        </Link>
         <ListItem button>
           <ListItemIcon>
             <ExitToAppIcon />

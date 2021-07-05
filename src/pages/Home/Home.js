@@ -54,7 +54,7 @@ class Home extends Component {
     } else {
       return (
         <div className='Home'>
-          <h1>Introducir usuarioa</h1>
+          <h1>Introducir usuario</h1>
           <form noValidate autoComplete='off' onSubmit={this.handleSubmit}>
             <TextField
               id='standard-basic'
