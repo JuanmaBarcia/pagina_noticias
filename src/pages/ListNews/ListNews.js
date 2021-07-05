@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./ListNews.scss";
 import Notice from "./Notice";
-import axios from "axios";
 
 class ListNews extends Component {
   constructor(props) {
@@ -11,14 +10,9 @@ class ListNews extends Component {
     };
   }
 
-  cargarNoticias = async () => {
-    const res = await axios.get(
-      `https://newsapi.org/v2/everything?q=keyword&apiKey=${process.env.REACT_APP_NOTICE_API}`
-    );
-    const articles = res.data.articles.slice(0, 5);
-    await this.setState({ articles });
+  renderNoticias = async () => {
     await this.setState({
-      articles: [...this.state.articles, ...this.props.articles],
+      articles: this.props.articles,
     });
   };
 
@@ -27,14 +21,18 @@ class ListNews extends Component {
       <Notice data={notice} key={i} remove={() => this.removeArticle(i)} />
     ));
 
-  removeArticle = (i) => {
+  removeArticle = async (i) => {
     let filteredArray = this.state.articles.filter((item, j) => i !== j);
-    this.setState({ articles: filteredArray });
+    await this.setState({ articles: filteredArray });
   };
 
   componentDidMount() {
-    this.cargarNoticias();
+    this.renderNoticias();
   }
+
+  componentWillUnmount = () => {
+    this.props.updateArticles(this.state.articles);
+  };
 
   render() {
     return <div className='ListNews'>{this.renderArticles()}</div>;

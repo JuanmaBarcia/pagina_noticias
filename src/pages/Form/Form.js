@@ -18,15 +18,18 @@ class Form extends Component {
 
     const title = e.target.title.value;
     const url = e.target.url.value;
-    const urlImg = e.target.urlImg.value;
+    const urlToImage = e.target.urlImg.value;
     const description = e.target.description.value;
     let noticia = {
       title,
       url,
-      urlImg,
+      urlToImage,
       description,
     };
+    console.log(noticia);
+
     await this.setState({ newNotice: noticia });
+    console.log(this.state.newNotice);
 
     this.props.addNewArticle(this.state.newNotice);
     this.setState({ isCreated: true });
