@@ -7,12 +7,16 @@ import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import EditIcon from "@material-ui/icons/Edit";
 import BallotIcon from "@material-ui/icons/Ballot";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { userContext } from "../../../context/userContext";
 
 class Nav extends Component {
+  static contextType = userContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -42,6 +46,13 @@ class Nav extends Component {
     this.setState({ ...this.state, [anchor]: open });
   };
 
+  logout = () => {
+    const userCont = this.context;
+    if (userCont.user.name !== "") {
+      userCont.logoutUser();
+    }
+  };
+
   list = (anchor) => (
     <div
       className={clsx(this.classes.list, {
@@ -68,6 +79,12 @@ class Nav extends Component {
             <BallotIcon />
           </ListItemIcon>
           <Link to='/list'>Noticias</Link>
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ExitToAppIcon />
+          </ListItemIcon>
+          <ListItemText onClick={this.logout}>Logout</ListItemText>
         </ListItem>
       </List>
     </div>
