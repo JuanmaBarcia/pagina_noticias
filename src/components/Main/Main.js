@@ -1,24 +1,35 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./Main.scss";
 import Home from "../../pages/Home";
 import Form from "../../pages/Form";
 import ListNews from "../../pages/ListNews";
+import { userContext } from "../../context/userContext";
 
 class Main extends Component {
+  static contextType = userContext;
   constructor(props) {
     super(props);
     this.state = {
-      articles: [
-        {
-          title: "Título",
-          url: "https://noticia",
-          urlImg: "https://imagen",
-          descrption: "Descripcion",
-        },
-      ],
+      articles: [],
+      isLogged: false,
+      name: "",
     };
   }
+
+  componentDidUpdate = async (prevProps, prevState) => {
+    const userCont = this.context;
+    const user = userCont.user;
+
+    if (!this.state.isLogged && user.name !== "") {
+      await this.setState({ isLogged: true });
+    } else if (
+      !userCont.isLogged &&
+      this.state.isLogged === prevState.isLogged
+    ) {
+      await this.setState({ isLogged: false });
+    }
+  };
 
   addNewArticle = async (article) =>
     await this.setState({ articles: [...this.state.articles, article] });
@@ -27,22 +38,43 @@ class Main extends Component {
     this.state.articles.map((article) => <h2>{article.title}</h2>);
 
   render() {
-    return (
-      <div className='Main'>
-        {this.renderArticles()}
-        <Switch>
-          <Route path='/home' component={Home} />
-          <Route
-            path='/form'
-            render={() => <Form addNewArticle={this.addNewArticle} />}
-          />
-          <Route
-            path='/list'
-            render={() => <ListNews articles={this.state.articles} />}
-          />
-        </Switch>
-      </div>
-    );
+    if (!this.state.isLogged) {
+      return (
+        <div className='Main'>
+          <Switch>
+            <Route exact path='/'>
+              <Redirect to='/home' />
+            </Route>
+            <Route exact path='/form'>
+              <Redirect to='/home' />
+            </Route>
+            <Route exact path='/list'>
+              <Redirect to='/home' />
+            </Route>
+            <Route path='/home' component={Home} />
+          </Switch>
+        </div>
+      );
+    } else {
+      return (
+        <div className='Main'>
+          <Switch>
+            <Route exact path='/'>
+              <Redirect to='/home' />
+            </Route>
+            <Route path='/home' component={Home} />
+            <Route
+              path='/form'
+              render={() => <Form addNewArticle={this.addNewArticle} />}
+            />
+            <Route
+              path='/list'
+              render={() => <ListNews articles={this.state.articles} />}
+            />
+          </Switch>
+        </div>
+      );
+    }
   }
 }
 

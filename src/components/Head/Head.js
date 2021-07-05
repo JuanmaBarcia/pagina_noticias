@@ -4,11 +4,6 @@ import Nav from "./Nav";
 import { userContext } from "../../context/userContext";
 
 class Head extends Component {
-  // constructor(props){
-  // super(props);
-  // this.state = {};
-  // }
-
   render() {
     return (
       <div className='Head'>

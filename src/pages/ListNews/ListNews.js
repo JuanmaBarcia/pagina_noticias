@@ -17,6 +17,9 @@ class ListNews extends Component {
     );
     const articles = res.data.articles.slice(0, 5);
     await this.setState({ articles });
+    await this.setState({
+      articles: [...this.state.articles, ...this.props.articles],
+    });
   };
 
   renderArticles = () =>

@@ -12,15 +12,25 @@ export class App extends Component {
 
     this.state = {
       user: { name: "" },
+      isLogged: false,
     };
   }
 
-  login = (name) => this.setState({ user: name });
+  login = (name) => {
+    this.setState({ user: name });
+    this.setState({ isLogged: true });
+  };
+  logout = (name) => {
+    this.setState({ user: { name: "" } });
+    this.setState({ isLogged: false });
+  };
 
   render() {
     const value = {
       user: this.state.user,
+      isLogged: this.state.isLogged,
       loginUser: this.login,
+      logoutUser: this.logout,
     };
 
     return (
